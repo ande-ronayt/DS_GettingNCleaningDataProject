@@ -26,7 +26,7 @@ Requirements:
 Steps in a run_analysis.R:
 ---------
 
-1. create a function my_grep that will help in the future. 
+* create a function my_grep that will help in the future. 
 ```
 ##my help function
 my_grep<- function(regex) {
@@ -35,13 +35,13 @@ my_grep<- function(regex) {
 ```
 
 
-2. load library
+* load library
 ```
 library(data.table)
 ```
 
 
-3. read all neccesary files
+* read all neccesary files
 
 ```
 #read files
