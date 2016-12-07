@@ -89,5 +89,5 @@ setkey(dt, subject, activity, domain_signal, acceleration_signal,
 dt_tidy <- dt[, list(count = .N, average = mean(value)), by = key(dt)]
 
 ##save tidy data
-fn <- file.path(path, "MyTidyData.csv")
-write.csv(dt_tidy, fn)
+fn <- file.path(path, "MyTidyData.txt")
+write.table(dt_tidy, fn, row.names = FALSE)
