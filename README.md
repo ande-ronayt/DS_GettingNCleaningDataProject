@@ -56,7 +56,7 @@ dt_train <- fread(file.path(pathData, "train", "X_train.txt"))
 ```
 
 
-4. #merge the training and the test sets and set key
+* #merge the training and the test sets and set key
 ```
 #merge the training and the test sets
 dt_subject <- rbind(dt_subject_train, dt_subject_test)
@@ -72,7 +72,7 @@ setkey(dt, subject, activityNum)
 ```
 
 
-5. Take SD and Mean
+* Take SD and Mean
 ```
 #take only SD and Mean
 dt_features <- fread(file.path(pathData, "features.txt"))
@@ -86,14 +86,14 @@ dt <- dt[, c(key(dt), dt_features$featureCode), with = FALSE]
 ```
 
 
-6. use descriptive acrtivity name file
+* use descriptive acrtivity name file
 ```
 #descriptive activity names
 dt_activity_names <- fread(file.path(pathData, "activity_labels.txt"))
 setnames(dt_activity_names, names(dt_activity_names), c("activityNum", "activityName"))
 ```
 
-7. label with descriptive activity names
+* label with descriptive activity names
 ```
 #label with descriptive activity names
 dt <- merge(dt, dt_activity_names, by = "activityNum", all.x = TRUE)
@@ -101,7 +101,7 @@ setkey(dt, subject, activityNum, activityName)
 ```
 
 
-8. Melt data
+* Melt data
 ```
 dt <- data.table(melt(dt, key(dt), variable.name = "featureCode"))
 ```
@@ -123,19 +123,19 @@ After this we have:
 679734:      30           6       LAYING        V543 -0.9988617
 ```
 
-9. Merge with feature names
+* Merge with feature names
 ```
 dt <- merge(dt, dt_features[, list(featureNum, featureCode, featureName)], by = "featureCode", all.x = TRUE)
 ```
 
 
-10. Add factor variables:
+* Add factor variables:
 ```
 dt$activity <- factor(dt$activityName)
 dt$feature <- factor(dt$featureName)
 ```
 
-11. Adding new factor variable:
+* Adding new factor variable:
 ```
 n <- 2
 y <- matrix(seq(1, n), nrow = n)
@@ -161,7 +161,7 @@ dt$axis_signal <- factor(x %*% y, labels = c(NA, "X", "Y", "Z"))
 ```
 
 
-12. Tidy data
+* Tidy data
 ```
 ##tidy data
 setkey(dt, subject, activity, domain_signal, acceleration_signal, 
@@ -170,7 +170,7 @@ dt_tidy <- dt[, list(count = .N, average = mean(value)), by = key(dt)]
 ```
 
 
-13. Save data
+* Save data
 ```
 ##save tidy data
 fn <- file.path(path, "MyTidyData.csv")
