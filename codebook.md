@@ -26,17 +26,17 @@ Classes ‘data.table’ and 'data.frame':	11880 obs. of  11 variables:
 
 
 Variable list and descriptions:
-1 subject - number of subject
-2 activity - activity name
-3 domain_signal - factor variable that indicates time domain of frequency domain signal
-4 acceleration_signal - factor variable that indicates is it body or gravity signal (or non)
-5 tool_signal - factor variable that indicates the tool that was used to measure
-6 jerk_signal - factor variable that indicates is it Jerk signal or not
-7 magnitude_signal - factor variable that indicates is it Magnitude signal or not
-8 variable - factor variable that indicates is it mean or SD
-9 axis_signal - factor variable that indicates XYZ
-10 count - count for each variable
-11 average - average of each variable
+* subject - number of subject
+* activity - activity name
+* domain_signal - factor variable that indicates time domain of frequency domain signal
+* acceleration_signal - factor variable that indicates is it body or gravity signal (or non)
+* tool_signal - factor variable that indicates the tool that was used to measure
+* jerk_signal - factor variable that indicates is it Jerk signal or not
+* magnitude_signal - factor variable that indicates is it Magnitude signal or not
+* variable - factor variable that indicates is it mean or SD
+* axis_signal - factor variable that indicates XYZ
+* count - count for each variable
+* average - average of each variable
 
 
 Head of data:
